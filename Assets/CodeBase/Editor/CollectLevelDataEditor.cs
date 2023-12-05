@@ -20,6 +20,8 @@ namespace CodeBase.Editor
             Vector3 playerInitialPoint = Object.FindObjectOfType<PlayerInitialPoint>().transform.position;
 
             levelStaticData.SetData(CollectEnemyData(), playerInitialPoint);
+
+            EditorUtility.SetDirty(levelStaticData);
         }
 
         private static EnemySpawnData CollectEnemyData()
