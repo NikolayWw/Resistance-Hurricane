@@ -14,14 +14,13 @@ namespace CodeBase.Infrastructure.States
     {
         private readonly IGameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
-        private readonly LoadCurtain _loadingCurtain;
         private readonly IStaticDataService _dataService;
         private readonly IGameFactory _gameFactory;
         private readonly IUIFactory _uiFactory;
         private readonly ICleanupService _cleanupService;
         private readonly ILogicFactory _logicFactory;
 
-        public LoadLevelState(IGameStateMachine stateMachine, SceneLoader sceneLoader, LoadCurtain loadingCurtain,
+        public LoadLevelState(IGameStateMachine stateMachine, SceneLoader sceneLoader,
             IStaticDataService dataService,
             IGameFactory gameFactory,
             IUIFactory uiFactory,
@@ -30,7 +29,6 @@ namespace CodeBase.Infrastructure.States
         {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
-            _loadingCurtain = loadingCurtain;
             _dataService = dataService;
             _gameFactory = gameFactory;
             _uiFactory = uiFactory;
@@ -40,7 +38,6 @@ namespace CodeBase.Infrastructure.States
 
         public void Enter(string sceneName)
         {
-            _loadingCurtain.Show();
             _cleanupService.Cleanup();
 
             if (CurrentSceneKey() != GameConstants.ReloadSceneKey)
@@ -50,9 +47,7 @@ namespace CodeBase.Infrastructure.States
         }
 
         public void Exit()
-        {
-            _loadingCurtain.Hide();
-        }
+        { }
 
         private void OnLoaded()
         {

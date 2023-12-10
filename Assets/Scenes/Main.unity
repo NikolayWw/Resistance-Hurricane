@@ -2098,7 +2098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4510111119185475819, guid: cc5e6572674734d4a8ee710455d1a91e, type: 3}
       propertyPath: <DelaySpawn>k__BackingField
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4510111119185475819, guid: cc5e6572674734d4a8ee710455d1a91e, type: 3}
       propertyPath: Configs.Array.data[0]._inspectorName

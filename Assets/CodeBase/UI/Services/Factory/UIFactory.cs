@@ -41,10 +41,11 @@ namespace CodeBase.UI.Services.Factory
         {
             IStaticDataService dataService = GetService<IStaticDataService>();
             IGameStateMachine gameStateMachine = GetService<IGameStateMachine>();
+            IPersistentProgressService progressService = GetService<IPersistentProgressService>();
 
             LoseWindow prefab = dataService.WindowData.LoseWindowPrefab;
             LoseWindow loseWindow = Object.Instantiate(prefab, _uiRoot);
-            loseWindow.Construct(gameStateMachine);
+            loseWindow.Construct(gameStateMachine, progressService);
         }
 
         private TService GetService<TService>() where TService : IService =>

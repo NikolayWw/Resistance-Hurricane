@@ -16,7 +16,7 @@ MonoBehaviour:
   - _inspectorName: HeavyBandit
     <Health>k__BackingField: 1
     <Damage>k__BackingField: 1
-    <Speed>k__BackingField: 7
+    <Speed>k__BackingField: 9
     <AttackDistance>k__BackingField: 1.5
     <AttackDelay>k__BackingField: 1
     <ApplyDamageDelay>k__BackingField: 0.5

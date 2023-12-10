@@ -9,6 +9,6 @@ namespace CodeBase.Infrastructure
         public GameStateMachine StateMachine { get; }
 
         public Game(ICoroutineRunner runner) => 
-            StateMachine = new GameStateMachine(new SceneLoader(runner), new LoadCurtain(runner), AllServices.Container, runner);
+            StateMachine = new GameStateMachine(new SceneLoader(runner), AllServices.Container, runner);
     }
 }

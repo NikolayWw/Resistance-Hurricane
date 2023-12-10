@@ -7,7 +7,6 @@ using CodeBase.Services.StaticData;
 using CodeBase.UI.Services.Factory;
 using System;
 using System.Collections.Generic;
-using CodeBase.Services.PersistentProgress;
 
 namespace CodeBase.Infrastructure.States
 {
@@ -16,12 +15,12 @@ namespace CodeBase.Infrastructure.States
         private readonly Dictionary<Type, IExitable> _states;
         private IExitable _activeState;
 
-        public GameStateMachine(SceneLoader sceneLoader, LoadCurtain loadCurtain, AllServices services, ICoroutineRunner coroutineRunner)
+        public GameStateMachine(SceneLoader sceneLoader, AllServices services, ICoroutineRunner coroutineRunner)
         {
             _states = new Dictionary<Type, IExitable>
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader, services, coroutineRunner),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, loadCurtain,
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader,
                     services.Single<IStaticDataService>(),
                     services.Single<IGameFactory>(),
                     services.Single<IUIFactory>(),
